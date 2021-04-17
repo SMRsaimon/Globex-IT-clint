@@ -24,7 +24,7 @@ const AdminSiteBar = () => {
         </li>
 
         <li>
-          <Link>Manage Products</Link>
+          <Link to="/manageProduct">Manage Products</Link>
         </li>
       </ul>
     </div>

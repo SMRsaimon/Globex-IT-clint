@@ -1,0 +1,16 @@
+.manage-img {
+  width: 300px;
+  height: 200px;
+}
+.services-container {
+  background-color: #007bff61;
+}
+.button-update {
+  color: rgb(0, 0, 0);
+}
+.updatePriceInput {
+  padding: 5px 0;
+  border-radius: 4px;
+  border-color: bisque;
+  outline: none;
+}

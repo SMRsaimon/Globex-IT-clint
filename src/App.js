@@ -15,6 +15,7 @@ import AddProduct from './components/DeshBoard/AddProduct/AddProduct';
 import AdminDeshBoard from './components/DeshBoard/AdminDeshBoard/AdminDeshBoard';
 import AdminOrderList from './components/DeshBoard/AdminOrderList/AdminOrderList';
 import BuyProduct from './components/DeshBoard/UserDeshBoard/buyProduct/BuyProduct';
+import ManageProduct from './components/DeshBoard/ManageProduct/ManageProduct';
 export const userContext = createContext()
 function App() {
 
@@ -75,6 +76,9 @@ function App() {
           </Route>
           <Route path='/buyServices/:id'>
             <BuyProduct />
+          </Route>
+          <Route path='/manageProduct'>
+            <ManageProduct />
           </Route>
         </Switch>
       </Router>

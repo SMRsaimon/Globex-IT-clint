@@ -18,10 +18,6 @@ const AdminOrderList = () => {
       });
   }, []);
 
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
-  };
   const hendelStatus = (e, id) => {
     const update = e.target.value;
 
@@ -62,6 +58,7 @@ const AdminOrderList = () => {
                   <tr>
                     <th>Name</th>
                     <th>Email ID</th>
+                    <th>Order Date</th>
                     <th>Services</th>
                     <th>Pay With</th>
                     <th>Status</th>
@@ -73,6 +70,7 @@ const AdminOrderList = () => {
                       <tr>
                         <td>{x.userName}</td>
                         <td>{x.email}</td>
+                        <td>{new Date().toDateString(x.date)}</td>
                         <td>{x.title}</td>
                         <td>{x.card}</td>
                         <td>
