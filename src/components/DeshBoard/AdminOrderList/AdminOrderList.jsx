@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { userContext } from "../../../App";
@@ -8,9 +8,36 @@ import "./AdminOrderList.css";
 const AdminOrderList = () => {
   const { loggedInUser } = useContext(userContext);
 
+  const [orderList, setOrderList] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/adminOrderList")
+      .then((res) => res.json())
+      .then((data) => {
+        setOrderList(data);
+      });
+  }, []);
+
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     console.log(data);
+  };
+  const hendelStatus = (e, id) => {
+    const update = e.target.value;
+
+    const status = {
+      update,
+    };
+
+    fetch(`http://localhost:5000/update/status/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(status),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
   };
 
   return (
@@ -41,31 +68,34 @@ const AdminOrderList = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>
-                      <form onSubmit={handleSubmit(onSubmit)}>
-                        <select className="form-controll" {...register("status")}>
-                          <option value="none" selected disabled hidden>
-                            Pending
-                          </option>
-                          <option value="Pending" className="pending">
-                            Pending
-                          </option>
-                          <option value="1" className="done">
-                            Done
-                          </option>
-                          <option value="On going" className="On-going">
-                            On going{" "}
-                          </option>
-                        </select>
-                        <input className="statusBtn" type="submit" value="Change" />
-                      </form>
-                    </td>
-                  </tr>
+                  {orderList.map((x) => (
+                    <>
+                      <tr>
+                        <td>{x.userName}</td>
+                        <td>{x.email}</td>
+                        <td>{x.title}</td>
+                        <td>{x.card}</td>
+                        <td>
+                          <div>
+                            <select onClick={(e) => hendelStatus(e, x._id)} className="form-controll">
+                              <option value="none" selected disabled hidden>
+                                {x.status}
+                              </option>
+                              <option value="Pending" className="pending">
+                                Pending
+                              </option>
+                              <option value="Done" className="done">
+                                Done
+                              </option>
+                              <option value="On going" className="On-going">
+                                On going
+                              </option>
+                            </select>
+                          </div>
+                        </td>
+                      </tr>
+                    </>
+                  ))}
                 </tbody>
               </Table>
             </div>
