@@ -1,0 +1,88 @@
+#getStarted {
+  background-color: transparent;
+  background-image: linear-gradient(180deg, #091d3e 60%, rgba(9, 29, 62, 0.85) 100%);
+  opacity: 1;
+  transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+}
+
+#getStarted h1 {
+  font-size: 36px;
+  line-height: 1.46;
+  font-family: "IBM Plex Sans", sans-serif;
+  color: white;
+}
+.getStanderdImgContainer {
+  width: 100px;
+  height: 100px;
+  border: 3px solid rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto;
+}
+.getStanderdImg {
+  width: 60px;
+  height: 60px;
+  background-color: white;
+}
+.getStanderd {
+  background-color: transparent;
+  border: 1px solid rgba(249, 249, 249, 0.15);
+  padding: 20px 20px;
+}
+.cardBody {
+  padding: 0 !important;
+  width: 100%;
+}
+.cardBody .title {
+  color: white;
+  text-align: center;
+}
+.cardBody .description {
+  color: white;
+  opacity: 0.8;
+  text-align: center;
+}
+.getStanderd:hover {
+  background-color: white;
+}
+.getStanderd:hover .cardBody .title {
+  color: rgb(7, 7, 7);
+}
+.getStanderd:hover .cardBody .description {
+  color: rgb(7, 7, 7);
+}
+.getStanderd:hover .getStanderdImgContainer {
+  border: 3px solid rgb(0, 0, 0);
+}
+.getStartedContra {
+  margin-top: 30px;
+  background-color: rgba(5, 76, 139, 0.4);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.getStartedContra span {
+  color: white;
+}
+.getStartedContra button {
+  box-shadow: none;
+  outline: medium none;
+  text-decoration: none;
+  color: #fff;
+  background-color: #091d3e;
+  border-color: #091d3e;
+  width: 232px;
+}
+.getStartedContra button:hover {
+  background-color: transparent;
+  box-shadow: none;
+  outline: medium none;
+}
+
+@media (max-width: 960px) {
+  #getStarted h1 {
+    font-size: 25px;
+  }
+}

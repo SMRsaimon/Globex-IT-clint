@@ -1,0 +1,27 @@
+.makeAdminHeader {
+  width: 100%;
+  padding: 30px;
+}
+
+.inputAdminEmail {
+  width: 60%;
+  padding: 6px 24px;
+  border: 6px solid var(--brand-color);
+  outline: none;
+}
+.inputAdminButton {
+  padding: 12px 24px;
+  background-color: var(--brand-color);
+  border: none;
+  border-radius: 0px 6px 6px 0px;
+  color: white;
+  font-weight: bold;
+  outline: none;
+}
+.inputAdminButton:hover {
+  color: rgb(199, 192, 192);
+}
+.adminLabelEmail {
+  font-size: 18px;
+  color: gray;
+}

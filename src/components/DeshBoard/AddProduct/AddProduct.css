@@ -1,0 +1,57 @@
+input[type="file"] {
+  display: none;
+}
+
+.weight-UPimg label {
+  color: #71ba58;
+  height: 39px;
+  width: 163px;
+  padding: 2px;
+  border: 2px solid #71ba58;
+  background-color: #dcffeced;
+  font-size: 21px;
+  display: flex;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.name-price input {
+  margin: 3%;
+}
+.name-price h6 {
+  margin: 3%;
+}
+.weight-UPimg input {
+  margin: 3%;
+}
+.weight-UPimg h6 {
+  margin: 3%;
+}
+.weight-UPimg label {
+  margin: 3%;
+}
+.home-path {
+  padding: 0%;
+  color: rgb(226, 226, 226);
+}
+
+.input-filed {
+  width: 95%;
+  height: 40%;
+  padding: 50px;
+  background-color: rgb(236, 236, 236);
+  border-radius: 15px;
+}
+
+.addservicesBtn {
+  padding: 8px 60px;
+
+  margin-left: 13px;
+  margin-top: 20px;
+  background-color: var(--brand-color);
+  border: none;
+  outline: none;
+  color: white;
+}
+.addservicesBtn:hover {
+  color: rgba(226, 220, 220, 0.897);
+}

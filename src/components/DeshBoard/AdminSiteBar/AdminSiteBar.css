@@ -1,0 +1,31 @@
+.deshboard {
+  width: 300px;
+  height: 100vh;
+  padding: 30px;
+  background-color: #007bff91;
+  margin-left: -20px;
+}
+.deshboard > ul > li {
+  padding: 20px;
+}
+.deshboard > ul > li:hover {
+  background-color: #007bff70;
+  cursor: pointer;
+}
+.deshboard > ul > li:active {
+  background-color: #007bff70;
+}
+.deshboard > ul > li > a {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+}
+.deshboard > ul > li > a:hover {
+  text-decoration: none;
+}
+.deshboard > ul > li > a:active {
+  color: black;
+}
+.deshboard .deshboardLogoContainer:hover {
+  background-color: transparent;
+}

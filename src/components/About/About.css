@@ -1,0 +1,63 @@
+.about-img {
+  width: 90%;
+  height: 100%;
+}
+.about-description {
+  margin-left: 80px;
+  border-style: solid;
+  border-width: 0px 0px 0px 3px;
+  border-color: #091d3e;
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+  margin: 0px 0px 0px 57px;
+  padding: 0px 0px 0px 40px;
+}
+.about-p1 {
+  font-weight: bold;
+  padding: 5px;
+  opacity: 0.8;
+}
+.about-p2 {
+  opacity: 0.8;
+  padding-bottom: 10px;
+}
+.lets-talk button {
+  width: 300px;
+
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #3787ff9e;
+}
+.lets-talk button:hover {
+  width: 300px;
+  background-color: var(--card-color);
+
+  color: var(--text-light);
+}
+.about-services-list {
+  padding: 5px;
+}
+.about-services-list ul li {
+  padding: 10px;
+}
+
+.about-icon-done {
+  color: green;
+  font-size: 31px;
+}
+.img-container {
+  position: relative;
+}
+.imgBackground {
+  width: 400px;
+  height: 250px;
+  background-color: rgb(0 208 255 / 58%);
+  position: absolute;
+  bottom: 0;
+  right: 70px;
+}
+@media (max-width: 960px) {
+  h1 {
+    font-size: 30px;
+  }
+}

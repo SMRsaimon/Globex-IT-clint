@@ -1,0 +1,47 @@
+.NabigationBar {
+}
+
+.NabigationBar-items {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.NabigationBar-items li {
+  padding: 15px 15px;
+}
+.NabigationBar-items li a {
+  text-decoration: none;
+  color: black;
+}
+.toggleButton {
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: 20px;
+  font-size: 44px;
+  cursor: pointer;
+  color: #1537f8fa !important;
+}
+
+.brand-img {
+  width: 185px;
+  height: 85px;
+  position: absolute;
+  left: 20px;
+  top: 10px;
+}
+
+.user-img-container img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+@media (max-width: 950px) {
+  .NabigationBar-items {
+    display: none;
+  }
+  .toggleButton {
+    display: block;
+  }
+}
