@@ -20,6 +20,8 @@ import ManageProduct from './components/DeshBoard/ManageProduct/ManageProduct';
 import BookingList from './components/DeshBoard/UserDeshBoard/BookingList/BookingList';
 import UserReview from './components/DeshBoard/UserDeshBoard/UserReview/UserReview';
 import DeshBoardWelcome from './components/DeshBoard/DeshBoardWelCome/DeshBoardWelcome';
+import PrivateRoute from './components/PrivateRoute';
+
 export const userContext = createContext()
 function App() {
 
@@ -31,10 +33,6 @@ function App() {
 
   }, [])
   const [isAdmin, setIsAdmin] = useState(false);
-
-
-
-
 
   return (
     <userContext.Provider value={{ loggedInUser, setLoggedInUser, isAdmin, setIsAdmin }} >
@@ -70,31 +68,33 @@ function App() {
             <SiteBar />
             <SignUp />
           </Route>
-          <Route path='/deshboard'>
+          <PrivateRoute path='/deshboard'>
             <DeshBoardWelcome />
-          </Route>
-          <Route path='/addAdmin'>
+          </PrivateRoute>
+          <PrivateRoute path='/addAdmin'>
             <AdminDeshBoard />
-          </Route>
-          <Route path='/addProduct'>
+          </PrivateRoute>
+          <PrivateRoute path='/addProduct'>
             <AddProduct />
-          </Route>
-          <Route path='/addminOrderList'>
+          </PrivateRoute>
+          <PrivateRoute path='/addminOrderList'>
             <AdminOrderList />
-          </Route>
-          <Route path='/buyServices/:id'>
+          </PrivateRoute>
+          <PrivateRoute path='/buyServices/:id'>
             <BuyProduct />
-          </Route>
-          <Route path='/manageProduct'>
+          </PrivateRoute>
+          <PrivateRoute path='/manageProduct'>
             <ManageProduct />
-          </Route>
-          <Route path='/bookingList'>
+          </PrivateRoute>
+          <PrivateRoute path='/bookingList'>
             <BookingList />
-          </Route>
-          <Route path='/userReview'>
+          </PrivateRoute>
+          <PrivateRoute path='/userReview'>
             <UserReview />
-          </Route>
+          </PrivateRoute>
+
         </Switch>
+
       </Router>
     </userContext.Provider >
   );

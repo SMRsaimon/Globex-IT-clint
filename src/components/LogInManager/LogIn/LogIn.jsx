@@ -56,7 +56,7 @@ const Login = () => {
         email: res.email,
       };
 
-      fetch("http://localhost:5000/checkAdmin", {
+      fetch("https://smr-software-consultancy.herokuapp.com/checkAdmin", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

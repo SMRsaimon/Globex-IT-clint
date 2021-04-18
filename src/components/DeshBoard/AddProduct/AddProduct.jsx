@@ -39,7 +39,7 @@ const AddProduct = () => {
       img: imgURL,
     };
 
-    fetch("http://localhost:5000/addServices", {
+    fetch("https://smr-software-consultancy.herokuapp.com/addServices", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

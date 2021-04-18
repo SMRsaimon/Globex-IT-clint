@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 const UserReview = () => {
   const { loggedInUser } = useContext(userContext);
   const [response, setResponse] = useState(false);
-  const { photo } = loggedInUser;
+
   const {
     register,
     handleSubmit,
@@ -16,10 +16,10 @@ const UserReview = () => {
   const onSubmit = (data) => {
     const userReview = {
       ...data,
-      photo,
+      photo: loggedInUser?.photo,
     };
 
-    fetch("http://localhost:5000/addReview", {
+    fetch("https://smr-software-consultancy.herokuapp.com/addReview", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

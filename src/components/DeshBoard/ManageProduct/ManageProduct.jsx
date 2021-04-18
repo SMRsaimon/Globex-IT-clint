@@ -9,7 +9,7 @@ const ManageProduct = () => {
   const [deleteServices, setDeleteServices] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/servicesList")
+    fetch("https://smr-software-consultancy.herokuapp.com/servicesList")
       .then((res) => res.json())
       .then((data) => {
         setmanageProduct(data);
@@ -17,14 +17,14 @@ const ManageProduct = () => {
   }, []);
 
   const hendelProductDelete = (id) => {
-    fetch(`http://localhost:5000/deleteServices/${id}`)
+    fetch(`https://smr-software-consultancy.herokuapp.com/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setDeleteServices(data);
       });
   };
   if (deleteServices) {
-    fetch("http://localhost:5000/servicesList")
+    fetch("https://smr-software-consultancy.herokuapp.com/servicesList")
       .then((res) => res.json())
       .then((data) => {
         setmanageProduct(data);

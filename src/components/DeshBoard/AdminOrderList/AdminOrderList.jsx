@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { userContext } from "../../../App";
+import LoaderSpiner from "../../Spinner/Loader";
 import AdminSiteBar from "../AdminSiteBar/AdminSiteBar";
 import "./AdminOrderList.css";
 
@@ -11,7 +12,7 @@ const AdminOrderList = () => {
   const [orderList, setOrderList] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/adminOrderList")
+    fetch("https://smr-software-consultancy.herokuapp.com/adminOrderList")
       .then((res) => res.json())
       .then((data) => {
         setOrderList(data);
@@ -25,7 +26,7 @@ const AdminOrderList = () => {
       update,
     };
 
-    fetch(`http://localhost:5000/update/status/${id}`, {
+    fetch(`https://smr-software-consultancy.herokuapp.com/update/status/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(status),
@@ -65,35 +66,39 @@ const AdminOrderList = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {orderList.map((x) => (
-                    <>
-                      <tr>
-                        <td>{x.userName}</td>
-                        <td>{x.email}</td>
-                        <td>{new Date().toDateString(x.date)}</td>
-                        <td>{x.title}</td>
-                        <td>{x.card}</td>
-                        <td>
-                          <div>
-                            <select onClick={(e) => hendelStatus(e, x._id)} className="form-controll">
-                              <option value="none" selected disabled hidden>
-                                {x.status}
-                              </option>
-                              <option value="Pending" className="pending">
-                                Pending
-                              </option>
-                              <option value="Done" className="done">
-                                Done
-                              </option>
-                              <option value="On going" className="On-going">
-                                On going
-                              </option>
-                            </select>
-                          </div>
-                        </td>
-                      </tr>
-                    </>
-                  ))}
+                  {orderList.length === 0 ? (
+                    <LoaderSpiner />
+                  ) : (
+                    orderList.map((x) => (
+                      <>
+                        <tr>
+                          <td>{x.userName}</td>
+                          <td>{x.email}</td>
+                          <td>{new Date().toDateString(x.date)}</td>
+                          <td>{x.title}</td>
+                          <td>{x.card}</td>
+                          <td>
+                            <div>
+                              <select onClick={(e) => hendelStatus(e, x._id)} className="form-controll">
+                                <option value="none" selected disabled hidden>
+                                  {x.status}
+                                </option>
+                                <option value="Pending" className="pending">
+                                  Pending
+                                </option>
+                                <option value="Done" className="done">
+                                  Done
+                                </option>
+                                <option value="On going" className="On-going">
+                                  On going
+                                </option>
+                              </select>
+                            </div>
+                          </td>
+                        </tr>
+                      </>
+                    ))
+                  )}
                 </tbody>
               </Table>
             </div>

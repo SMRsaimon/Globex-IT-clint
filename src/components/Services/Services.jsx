@@ -5,13 +5,14 @@ import "./Services.css";
 
 import Bounce from "react-reveal/Bounce";
 import { useHistory } from "react-router";
+import LoaderSpiner from "../Spinner/Loader";
 const Services = () => {
   const [services, setservices] = useState([]);
 
   const history = useHistory();
 
   useEffect(() => {
-    fetch("http://localhost:5000/servicesList")
+    fetch("https://smr-software-consultancy.herokuapp.com/servicesList")
       .then((res) => res.json())
       .then((data) => {
         setservices(data);
@@ -25,11 +26,11 @@ const Services = () => {
   return (
     <div className="container mb-5">
       <Bounce left delay={100} duration={2000}>
-        <h2 className="text-center text-heading-services">
+        <h2 className="text-center text-heading-services mt-5">
           Offer The Latest Software <br /> And Solutions To Our customers!
         </h2>
       </Bounce>
-
+      {services.length === 0 ? <LoaderSpiner /> : ""}
       <div className="row mt-5 pt-4 ">
         {services.map((x) => (
           <>

@@ -1,24 +1,21 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import { userContext } from "../../../../App";
+import LoaderSpiner from "../../../Spinner/Loader";
 import AdminSiteBar from "../../AdminSiteBar/AdminSiteBar";
 import "./BookingList.css";
 
 const BookingList = () => {
   const { loggedInUser } = useContext(userContext);
-
   const [orderList, setOrderList] = useState([]);
 
-  console.log(loggedInUser);
-
   useEffect(() => {
-    fetch(`http://localhost:5000/userBookingServices?email=${loggedInUser.email}`)
+    fetch(`https://smr-software-consultancy.herokuapp.com/userBookingServices?email=${loggedInUser?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setOrderList(data);
-        console.log(data);
       });
-  }, [loggedInUser.email]);
+  }, [loggedInUser?.email]);
 
   return (
     <>
@@ -50,30 +47,37 @@ const BookingList = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {orderList.map((x) => (
-                      <>
-                        <tr>
-                          <td>{x.email}</td>
-                          <td>{x.address}</td>
-                          <td>{new Date().toDateString(x.date)}</td>
-                          <td>{x.title}</td>
-                          <td>$ {x.price}</td>
-                          <td
-                            className={
-                              x.status === "Pending"
-                                ? "pendding"
-                                : "" || x.status === "Done"
-                                ? "done"
-                                : "" || x.status === "On going"
-                                ? "onGoing"
-                                : ""
-                            }
-                          >
-                            $ {x.status}
-                          </td>
-                        </tr>
-                      </>
-                    ))}
+                    {orderList.length === 0 ? (
+                      <p className="bookingSpinner">
+                        {" "}
+                        <LoaderSpiner />{" "}
+                      </p>
+                    ) : (
+                      orderList?.map((x) => (
+                        <>
+                          <tr>
+                            <td>{x?.email}</td>
+                            <td>{x?.address}</td>
+                            <td>{new Date().toDateString(x.date)}</td>
+                            <td>{x.title}</td>
+                            <td>$ {x.price}</td>
+                            <td
+                              className={
+                                x.status === "Pending"
+                                  ? "pendding"
+                                  : "" || x.status === "Done"
+                                  ? "done"
+                                  : "" || x.status === "On going"
+                                  ? "onGoing"
+                                  : ""
+                              }
+                            >
+                              $ {x.status}
+                            </td>
+                          </tr>
+                        </>
+                      ))
+                    )}
                   </tbody>
                 </Table>
               </div>

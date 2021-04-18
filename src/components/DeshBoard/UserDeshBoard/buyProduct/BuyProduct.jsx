@@ -12,7 +12,7 @@ const BuyProduct = () => {
   const [orderProduct, setOrderProduct] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/order/services/${id}`)
+    fetch(`https://smr-software-consultancy.herokuapp.com/order/services/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setOrderProduct(data);

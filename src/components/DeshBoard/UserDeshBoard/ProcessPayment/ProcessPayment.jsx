@@ -125,11 +125,11 @@ const CheckoutForm = ({ orderProduct, loggedInUser }) => {
         img,
         price,
         status: "Pending",
-        date:new Date()
+        date: new Date(),
       };
       console.log(orderProductInfo);
       setProcessing(true);
-      fetch("http://localhost:5000/placeOrder", {
+      fetch("https://smr-software-consultancy.herokuapp.com/placeOrder", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
