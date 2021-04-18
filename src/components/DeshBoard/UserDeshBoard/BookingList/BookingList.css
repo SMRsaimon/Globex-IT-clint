@@ -1,0 +1,13 @@
+.pendding {
+  color: red;
+
+  font-weight: bold;
+}
+.onGoing {
+  color: #ffa707;
+  font-weight: bold;
+}
+.done {
+  color: green;
+  font-weight: bold;
+}

@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import { userContext } from "../../../../App";
 import AdminSiteBar from "../../AdminSiteBar/AdminSiteBar";
 import "./BuyProduct.css";
-import ProcessPayment from "./ProcessPayment/ProcessPayment";
+import ProcessPayment from "../ProcessPayment/ProcessPayment";
 
 const BuyProduct = () => {
   const { id } = useParams();
