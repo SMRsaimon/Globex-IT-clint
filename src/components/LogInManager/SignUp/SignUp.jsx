@@ -17,7 +17,7 @@ const SignUp = () => {
   } = useForm();
   const password = useRef({});
   password.current = watch("password", "");
-  const { setLoggedInUser } = useContext(userContext);
+  const { setLoggedInUser, setIsAdmin } = useContext(userContext);
   const history = useHistory();
   const location = useLocation();
   const { from } = location.state || { from: { pathname: "/" } };
@@ -73,6 +73,29 @@ const SignUp = () => {
     if (redirect) {
       setLoggedInUser(res);
       localStorage.setItem("userInfo", JSON.stringify(res));
+
+      const adminCheck = {
+        email: res.email,
+      };
+
+      fetch("http://localhost:5000/checkAdmin", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(adminCheck),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("data", data);
+          if (data.length > 0) {
+            setIsAdmin(true);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
       history.replace(from);
     }
   };

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Col, Container, Form, Row } from "react-bootstrap";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import "./LogIn.css";
@@ -12,7 +12,7 @@ const Login = () => {
   const history = useHistory();
   const location = useLocation();
   const { from } = location.state || { from: { pathname: "/" } };
-  const { setLoggedInUser } = useContext(userContext);
+  const { loggedInUser, setLoggedInUser, setIsAdmin } = useContext(userContext);
   const [user, setUser] = useState({
     isSignedIn: false,
     name: "",
@@ -51,6 +51,29 @@ const Login = () => {
     if (redirect) {
       setLoggedInUser(res);
       localStorage.setItem("userInfo", JSON.stringify(res));
+
+      const adminCheck = {
+        email: res.email,
+      };
+
+      fetch("http://localhost:5000/checkAdmin", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(adminCheck),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("data", data);
+          if (data.length > 0) {
+            setIsAdmin(true);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
       history.replace(from);
     }
   };

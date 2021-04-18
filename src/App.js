@@ -1,6 +1,7 @@
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import SiteBar from "./components/NavMenu/SideBar.js"
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './components/Home/Home';
@@ -18,6 +19,7 @@ import BuyProduct from './components/DeshBoard/UserDeshBoard/buyProduct/BuyProdu
 import ManageProduct from './components/DeshBoard/ManageProduct/ManageProduct';
 import BookingList from './components/DeshBoard/UserDeshBoard/BookingList/BookingList';
 import UserReview from './components/DeshBoard/UserDeshBoard/UserReview/UserReview';
+import DeshBoardWelcome from './components/DeshBoard/DeshBoardWelCome/DeshBoardWelcome';
 export const userContext = createContext()
 function App() {
 
@@ -28,10 +30,14 @@ function App() {
     setLoggedInUser(userInfo)
 
   }, [])
-  console.log(loggedInUser)
+  const [isAdmin, setIsAdmin] = useState(false);
+
+
+
+
 
   return (
-    <userContext.Provider value={{ loggedInUser, setLoggedInUser }} >
+    <userContext.Provider value={{ loggedInUser, setLoggedInUser, isAdmin, setIsAdmin }} >
       <Router>
 
         <Switch>
@@ -65,7 +71,7 @@ function App() {
             <SignUp />
           </Route>
           <Route path='/deshboard'>
-            <AdminDeshBoard />
+            <DeshBoardWelcome />
           </Route>
           <Route path='/addAdmin'>
             <AdminDeshBoard />

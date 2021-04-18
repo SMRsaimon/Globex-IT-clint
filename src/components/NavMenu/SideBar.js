@@ -15,12 +15,13 @@ function SideBar() {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
-  const { loggedInUser, setLoggedInUser } = useContext(userContext)
+  const { loggedInUser, setLoggedInUser, setIsAdmin } = useContext(userContext)
 
   // Hendel signOut
   const hendelLogOut = () => {
     handleSignOut().then((res) => {
       localStorage.removeItem("userInfo")
+      setIsAdmin(false)
       setLoggedInUser({})
 
     });
