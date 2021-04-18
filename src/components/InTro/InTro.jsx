@@ -16,25 +16,27 @@ const InTro = () => {
       <Carousel activeIndex={index} onSelect={handleSelect}>
         <Carousel.Item>
           <img className="d-block w-100 carousel-img" src={background1} alt="First slide" />
-          <Carousel.Caption>
-            <h1>First slide label</h1>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <Carousel.Caption className="text-container">
+            <h1>We Mantain Heigh Quility Services</h1>
+            <h5>Nulla vitae elit libero, a pharetra augue mollis interdum.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img className="d-block w-100 carousel-img" src={background2} alt="Second slide" />
 
-          <Carousel.Caption>
-            <h1>First slide label</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <Carousel.Caption className="text-container">
+            <h1>We are First</h1>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img className="d-block w-100 carousel-img" src={background3} alt="Third slide" />
 
-          <Carousel.Caption>
-            <h1>First slide label</h1>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <Carousel.Caption className="text-container">
+            <h1>100% Clint satisfy </h1>
+            <h5>
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </h5>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

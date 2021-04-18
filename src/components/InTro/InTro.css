@@ -16,29 +16,32 @@
 .carousel-container {
   position: relative;
 }
+
 .carousel-caption {
   position: absolute;
   right: 15%;
-  /* bottom: 201px; */
-  top: 40%;
-  left: -19%;
+
+  top: 20%;
+  left: 12%;
   z-index: 10;
   padding-top: 20px;
   padding-bottom: 20px;
   color: #fff;
   text-align: center;
 }
+
 .carousel-caption h1,
-p {
-  color: rgb(255, 255, 255);
-}
+
 .carousel-caption h1 {
-  font-size: 70px;
+  font-size: 50px;
 
   line-height: 80px;
   letter-spacing: -1px;
 }
-
+.text-container {
+  /* width: 50%;
+  margin-left: auto; */
+}
 /* 
     z-index: 12;
     font-family: "IBM Plex Sans";
