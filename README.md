@@ -1,6 +1,6 @@
 # Getting Started with my application
 
-[Globex IT Services & Tech ](https://digital-shop-3e726.web.app/). is IT Services application.
+[Globex IT Services & Tech ](https://smr-creative-it.web.app/). is IT Services application.
 
 # What I am using :
 

@@ -7,8 +7,6 @@ import { userContext } from "../../../App";
 const AdminSiteBar = () => {
   const { isAdmin } = useContext(userContext);
 
-  console.log(isAdmin);
-
   return (
     <div className="deshboard">
       <ul>
